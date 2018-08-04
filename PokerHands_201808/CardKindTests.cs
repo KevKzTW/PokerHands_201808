@@ -49,6 +49,48 @@ namespace PokerHands_201808
             ResultShouldBe(CardKind.FourOfKinds, 14);
         }
 
+        [TestMethod]
+        public void FullHouse()
+        {
+            GivenCards("DA,HA,SA,C10,D10");
+            ResultShouldBe(CardKind.FullHouse, 14);
+        }
+
+        [TestMethod]
+        public void FullHouse_66699()
+        {
+            GivenCards("D6,H6,S6,C9,H9");
+            ResultShouldBe(CardKind.FullHouse, 6);
+        }
+
+        [TestMethod]
+        public void TwoPair()
+        {
+            GivenCards("D9,H6,C5,H9,C6");
+            ResultShouldBe(CardKind.TwoPair, 9);
+        }
+
+        [TestMethod]
+        public void OnePair()
+        {
+            GivenCards("D9,H6,C5,H3,C6");
+            ResultShouldBe(CardKind.OnePair, 6);
+        }
+
+        [TestMethod]
+        public void ThreeOfKind()
+        {
+            GivenCards("DA,CA,SA,D5,S6");
+            ResultShouldBe(CardKind.ThreeOfKind, 14);
+        }
+
+        [TestMethod]
+        public void HighCard()
+        {
+            GivenCards("DA,C2,S4,D5,S6");
+            ResultShouldBe(CardKind.HighCard, 14);
+        }
+
         private void GivenCards(string cards)
         {
             _cardKindResolver = new CardKindResolver(cards);

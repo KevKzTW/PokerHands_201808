@@ -60,10 +60,15 @@
     <Compile Include="FlushResolver.cs" />
     <Compile Include="FlushStraightResolver.cs" />
     <Compile Include="FourOfKindsResolver.cs" />
+    <Compile Include="FullHouseResolver.cs" />
+    <Compile Include="HighCardResolver.cs" />
     <Compile Include="ICardKindResolver.cs" />
+    <Compile Include="OnePairResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StraightResolver.cs" />
     <Compile Include="Suit.cs" />
+    <Compile Include="ThreeOfKindResolver.cs" />
+    <Compile Include="TwoPairResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -6,6 +6,11 @@
         Flush,
         Straight,
         FlushStraight,
-        FourOfKinds
+        FourOfKinds,
+        FullHouse,
+        ThreeOfKind,
+        TwoPair,
+        OnePair,
+        HighCard
     }
 }

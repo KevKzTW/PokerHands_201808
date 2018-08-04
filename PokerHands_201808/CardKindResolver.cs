@@ -21,7 +21,6 @@ namespace PokerHands_201808
                     return;
                 }
             }
-       
         }
 
         private List<ICardKindResolver> GetResolvers()
@@ -30,8 +29,13 @@ namespace PokerHands_201808
             {
                 new FlushStraightResolver(this),
                 new FourOfKindsResolver(this),
+                new FullHouseResolver(this),
                 new FlushResolver(this),
-                new StraightResolver(this)
+                new StraightResolver(this),
+                new ThreeOfKindResolver(this),
+                new TwoPairResolver(this),
+                new OnePairResolver(this),
+                new HighCardResolver(this)
             };
             return resolvers;
         }
