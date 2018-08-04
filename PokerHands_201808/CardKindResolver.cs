@@ -1,53 +1,42 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace PokerHands_201808
 {
     public class CardKindResolver
     {
-        private IEnumerable<Card> _cards;
+        public IEnumerable<Card> _cards;
+
+        private readonly FlushStraightResolver _flushStraightResolver;
+        private readonly FlushResolver _flushResolver;
+        private readonly StraightResolver _straightResolver;
 
         public CardKindResolver(string cards)
         {
             _cards = Cards.Parse(cards);
-            if (IsFlush())
+            foreach (var resolver in GetResolvers())
             {
-                kind = CardKind.Flush;
+                if (resolver.IsMatch())
+                {
+                    resolver.SetResult();
+                    return;
+                }
             }
+       
+        }
 
-            if (IsStraight())
+        private List<ICardKindResolver> GetResolvers()
+        {
+            List<ICardKindResolver> resolvers = new List<ICardKindResolver>()
             {
-                kind = CardKind.Straight;
-            }
-
-            MaxPoint = _cards.Max(c => c.Point);
+                new FlushStraightResolver(this),
+                new FlushResolver(this),
+                new StraightResolver(this)
+            };
+            return resolvers;
         }
 
-        private bool IsFlush()
-        {
-            return _cards.Select(c => c.Suit).Distinct().Count() == 1;
-        }
+        public CardKind Kind { get; set; }
 
-        private bool IsStraight()
-        {
-            var points = _cards.Select(a => a.Point);
-            var points2 = _cards.Select(a => a.IsAce ? 1 : a.Point);
-            return IsStraight(points) || IsStraight(points2);
-        }
-
-        private static bool IsStraight(IEnumerable<int> points)
-        {
-            var isStraight = points.Max() - points.Min() == 4 && points.Distinct().Count() == 5;
-            return isStraight;
-        }
-
-        private CardKind kind;
-
-        public CardKind GetKind()
-        {          
-            return kind;
-        }
-
-        public int MaxPoint { get; }
+        public int MaxPoint { get; set; }
     }
 }

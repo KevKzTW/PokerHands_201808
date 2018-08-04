@@ -35,6 +35,13 @@ namespace PokerHands_201808
             ResultShouldBe(CardKind.Straight, 14);
         }
 
+        [TestMethod]
+        public void Flush_Straight_10JQKA()
+        {
+            GivenCards("H10,HJ,HK,HQ,HA");
+            ResultShouldBe(CardKind.FlushStraight, 14);
+        }
+
         private void GivenCards(string cards)
         {
             _cardKindResolver = new CardKindResolver(cards);
@@ -42,7 +49,7 @@ namespace PokerHands_201808
 
         private void ResultShouldBe(CardKind cardKind, int maxPoint)
         {
-            Assert.AreEqual(cardKind, _cardKindResolver.GetKind());
+            Assert.AreEqual(cardKind, _cardKindResolver.Kind);
             Assert.AreEqual(maxPoint, _cardKindResolver.MaxPoint);
         }
     }

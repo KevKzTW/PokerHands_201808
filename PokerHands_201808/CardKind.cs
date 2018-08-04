@@ -4,6 +4,7 @@
     {
         None,
         Flush,
-        Straight
+        Straight,
+        FlushStraight
     }
 }
