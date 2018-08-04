@@ -52,16 +52,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Card.cs" />
+    <Compile Include="CardCompare.cs" />
+    <Compile Include="CardCompareTests.cs" />
     <Compile Include="CardKind.cs" />
     <Compile Include="CardKindResolver.cs" />
     <Compile Include="CardKindTests.cs" />
     <Compile Include="Cards.cs" />
     <Compile Include="CardsTests.cs" />
     <Compile Include="FlushResolver.cs" />
+    <Compile Include="FlushStraightComparer.cs" />
     <Compile Include="FlushStraightResolver.cs" />
     <Compile Include="FourOfKindsResolver.cs" />
     <Compile Include="FullHouseResolver.cs" />
     <Compile Include="HighCardResolver.cs" />
+    <Compile Include="ICardComparer.cs" />
     <Compile Include="ICardKindResolver.cs" />
     <Compile Include="OnePairResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

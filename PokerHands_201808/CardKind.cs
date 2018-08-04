@@ -2,15 +2,15 @@
 {
     public enum CardKind
     {
-        None,
-        Flush,
-        Straight,
-        FlushStraight,
-        FourOfKinds,
-        FullHouse,
-        ThreeOfKind,
-        TwoPair,
-        OnePair,
-        HighCard
+        None = 1,
+        FlushStraight=10,
+        FourOfKinds=9,
+        FullHouse = 8,
+        Flush = 7,
+        Straight = 6,
+        ThreeOfKind = 5,
+        TwoPair = 4,
+        OnePair = 3,
+        HighCard = 2
     }
 }

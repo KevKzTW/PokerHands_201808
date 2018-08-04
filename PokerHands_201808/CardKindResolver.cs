@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace PokerHands_201808
 {
@@ -43,5 +44,14 @@ namespace PokerHands_201808
         public CardKind Kind { get; set; }
 
         public int MaxPoint { get; set; }
+        public int SecondMaxPoint
+        {
+            get => GetSecondMaxPoint();
+        }
+
+        public  int GetSecondMaxPoint()
+        {
+            return _cards.Where(a => a.IsAce == false).Max(c => c.Point);
+        }
     }
 }
