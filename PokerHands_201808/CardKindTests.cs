@@ -28,6 +28,13 @@ namespace PokerHands_201808
             ResultShouldBe(CardKind.Straight, 14);
         }
 
+        [TestMethod]
+        public void Straight_10JQKA()
+        {
+            GivenCards("S10,CJ,DK,HQ,HA");
+            ResultShouldBe(CardKind.Straight, 14);
+        }
+
         private void GivenCards(string cards)
         {
             _cardKindResolver = new CardKindResolver(cards);
