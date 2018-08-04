@@ -29,6 +29,7 @@ namespace PokerHands_201808
             List<ICardKindResolver> resolvers = new List<ICardKindResolver>()
             {
                 new FlushStraightResolver(this),
+                new FourOfKindsResolver(this),
                 new FlushResolver(this),
                 new StraightResolver(this)
             };

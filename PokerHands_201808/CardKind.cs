@@ -5,6 +5,7 @@
         None,
         Flush,
         Straight,
-        FlushStraight
+        FlushStraight,
+        FourOfKinds
     }
 }

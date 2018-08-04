@@ -42,6 +42,13 @@ namespace PokerHands_201808
             ResultShouldBe(CardKind.FlushStraight, 14);
         }
 
+        [TestMethod]
+        public void FourOfKinds()
+        {
+            GivenCards("DA,HA,SA,CA,C3");
+            ResultShouldBe(CardKind.FourOfKinds, 14);
+        }
+
         private void GivenCards(string cards)
         {
             _cardKindResolver = new CardKindResolver(cards);
