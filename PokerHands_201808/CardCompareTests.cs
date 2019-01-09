@@ -8,7 +8,7 @@ namespace PokerHands_201808
         [TestMethod]
         public void FlushStraight_Bigger_Than_FourOfKind()
         {
-            var flushStraightCards = "DA,D2,D3,D4,D5";
+            var flushStraightCards = "D2,D2,D3,D4,D5";
             var fourOfKindCards = "DA,SA,HA,ZA,D9";
 
             FirstBiggerThanSecond(flushStraightCards, fourOfKindCards);
